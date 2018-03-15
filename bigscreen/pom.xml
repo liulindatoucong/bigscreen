@@ -30,6 +30,11 @@
     	<groupId>com.sap</groupId>
     	<artifactId>ngdbc</artifactId>
     	<version>1.120</version>
-    </dependency>   
+    </dependency>
+    <dependency>
+	  <groupId>org.mybatis</groupId>
+	  <artifactId>mybatis</artifactId>
+	  <version>3.4.6</version>
+	</dependency> 
   </dependencies>
 </project>
