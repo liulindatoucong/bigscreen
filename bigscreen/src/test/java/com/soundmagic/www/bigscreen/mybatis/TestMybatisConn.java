@@ -38,9 +38,35 @@ public class TestMybatisConn {
 			{
 				ss.close();
 			}
+		}	
+	}
+	
+	
+	@Test
+	public void testMybatisHanaJava() throws Exception
+	{
+		SqlSession ss = null;
+		try
+		{
+			String resource = "mybatis/mybatis-configTest.xml";
+			InputStream inputStream = Resources.getResourceAsStream(resource);
+			SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+			ss = sqlSessionFactory.openSession();
+			UserMapperTest um = ss.getMapper(UserMapperTest.class);
+			UserTest us = um.findUserByName("104128");
+			System.out.println(us.getSite());
+			System.out.println(us.getCreatedDateTime());
 		}
-		
-		
-		
+		catch(Exception e)
+		{
+			throw e;
+		} 
+		finally
+		{
+			if(ss!=null)
+			{
+				ss.close();
+			}
+		}	
 	}
 }
