@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.soundmagic.www.bigscreen.mybatis.mapper.UserMapperTest">  
+    <select id="findbyid" parameterType="String" resultMap="UserResult">  
+        select HANDLE, SITE, USER_ID, created_date_time from USR where handle = #{handle}  
+    </select>  
+      
+    <resultMap type="User" id="UserResult">  
+        <id property="handle" column="handle"/>  
+        <result property="site" column="site"/>  
+        <result property="userId" column="user_id"/>  
+        <result property="createdDateTime" column="created_date_time"/>
+    </resultMap>  
+</mapper>  
